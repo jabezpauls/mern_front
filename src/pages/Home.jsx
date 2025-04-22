@@ -3,67 +3,69 @@ import { motion } from "framer-motion";
 
 const Home = () => {
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-blue-700 to-purple-900 text-white flex flex-col items-center justify-center overflow-hidden">
-      
-      {/* Animated Background */}
-      <motion.div 
-        className="absolute inset-0 bg-opacity-50"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-      />
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center">
+          <motion.h1 
+            className="text-4xl font-light text-slate-800 mb-4"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Welcome to <span className="text-slate-600">MedEquip</span>
+          </motion.h1>
+          
+          <motion.p 
+            className="text-lg text-slate-600 mb-12 max-w-2xl mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Streamline your medical equipment management with our intuitive inventory system.
+          </motion.p>
 
-      {/* Hero Section */}
-      <motion.div 
-        className="text-center z-10"
-        initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 1 }}
-      >
-        <h1 className="text-5xl font-extrabold mb-4 animate-pulse">
-          Welcome to <span className="text-yellow-400">MedEquip</span>
-        </h1>
-        <p className="text-lg opacity-90">
-          The ultimate solution for managing medical equipment efficiently.
-        </p>
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            <Link to="/dash">
+              <button className="w-full sm:w-auto px-6 py-3 text-sm font-medium text-white bg-slate-700 border border-slate-600 rounded-md hover:bg-slate-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500">
+                View Dashboard
+              </button>
+            </Link>
 
-        {/* Action Buttons */}
-        <div className="mt-6 flex gap-6 justify-center">
-          <Link to="/dashboard">
-            <motion.button 
-              className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 rounded-lg font-bold shadow-lg"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              Go to Dashboard
-            </motion.button>
-          </Link>
-
-          <Link to="/add">
-            <motion.button 
-              className="bg-green-400 hover:bg-green-500 text-black px-6 py-3 rounded-lg font-bold shadow-lg"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              Add New Product
-            </motion.button>
-          </Link>
+            <Link to="/add">
+              <button className="w-full sm:w-auto px-6 py-3 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-md hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500">
+                Add New Product
+              </button>
+            </Link>
+          </motion.div>
         </div>
-      </motion.div>
 
-      {/* Animated Equipment Showcase */}
-      <motion.div 
-        className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-4xl"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.5 }}
-      >
-        <img 
-          src="https://source.unsplash.com/1000x400/?hospital,medical" 
-          alt="Medical Equipment" 
-          className="rounded-xl shadow-xl"
-        />
-      </motion.div>
+        <motion.div 
+          className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+        >
+          <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:border-slate-300 transition-colors">
+            <h3 className="text-lg font-medium text-slate-800 mb-2">Inventory Management</h3>
+            <p className="text-slate-600">Efficiently track and manage your medical equipment inventory.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:border-slate-300 transition-colors">
+            <h3 className="text-lg font-medium text-slate-800 mb-2">Real-time Updates</h3>
+            <p className="text-slate-600">Stay informed with instant updates on your inventory status.</p>
+          </div>
+          
+          <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200 hover:border-slate-300 transition-colors">
+            <h3 className="text-lg font-medium text-slate-800 mb-2">Easy to Use</h3>
+            <p className="text-slate-600">Simple and intuitive interface for seamless operation.</p>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 };
